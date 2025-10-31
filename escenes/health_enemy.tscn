@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc55h704kdwoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdlrg"]
+
+[node name="Health_enemy" type="ProgressBar"]
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/background = SubResource("StyleBoxFlat_rdlrg")

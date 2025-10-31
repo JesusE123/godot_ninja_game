@@ -1,5 +1,8 @@
 class_name enemy extends  CharacterBody2D
 var move_speed = 50
+var health = 100
+var health_max = 100
+var health_min = 0
 var is_attack := false
 var is_hit := false
 @onready var player = $"../Player"
@@ -21,17 +24,29 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 		
-func take_damage() -> void:
+func take_damage(amount:int = 50) -> void:
+	if health <= 0:
+		return
 	print("el enemigo ha recibido daño")
+	health -= amount
+	health = clamp(health, health_min, health_max)
+	if health <= 0:
+		is_hit = true
+		is_attack = false
+		velocity = Vector2.ZERO
+		sprite.play("death")
+		return
 	is_hit = true
 	sprite.play("take_hit")
+	if has_node("Health_enemy"):
+		$Health_enemy.value = health
+	
 	return
 	
-
-	
-
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "take_hit":
 		is_hit = false
 		sprite.play("run")
+	elif sprite.animation == "death":
+		queue_free()
