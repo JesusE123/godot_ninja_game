@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsj8l817jmkml"]
+
+[ext_resource type="Texture2D" uid="uid://c3phd5235xdc8" path="res://ChatGPT Image 31 oct 2025, 12_51_47.png" id="1_hg7jc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrdwh"]
+atlas = ExtResource("1_hg7jc")
+region = Rect2(0, 512, 384, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iggqt"]
+atlas = ExtResource("1_hg7jc")
+region = Rect2(384, 512, 384, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0pb4"]
+atlas = ExtResource("1_hg7jc")
+region = Rect2(768, 512, 384, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xylwx"]
+atlas = ExtResource("1_hg7jc")
+region = Rect2(1152, 512, 384, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56wx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrdwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iggqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0pb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xylwx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijksy"]
+radius = 56.0
+height = 160.0
+
+[node name="robot" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_56wx6")
+frame = 2
+frame_progress = 0.42612943
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-48, 16)
+shape = SubResource("CapsuleShape2D_ijksy")

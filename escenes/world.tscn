@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=4 uid="uid://depcfqvbpvx3n"]
+
+[ext_resource type="Texture2D" uid="uid://bv41jtf6k7wbe" path="res://Final/Final/Background_0.png" id="1_k047a"]
+[ext_resource type="Texture2D" uid="uid://hqgl3krcrwxw" path="res://Final/Final/Salt.png" id="2_b5vc2"]
+[ext_resource type="Texture2D" uid="uid://bpm17rjlb4n3n" path="res://Final/Final/Background_1.png" id="3_suqky"]
+[ext_resource type="Texture2D" uid="uid://cn2nnk27tpibm" path="res://Final/Final/Tiles.png" id="4_rebxa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3sb7"]
+texture = ExtResource("4_rebxa")
+8:1/size_in_atlas = Vector2i(6, 3)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47.133568, -3.6690826, 49.391468, -5.362503, 48.826992, 23.425667, -47.69804, 24.554611)
+3:8/size_in_atlas = Vector2i(5, 3)
+3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.82699, -5.362503, 49.391468, -5.362503, 48.826992, 23.425667, -47.69804, 24.554611)
+2:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fj7yv"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f3sb7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k047a"]
+size = Vector2(56, 448)
+
+[node name="World" type="Node2D"]
+position = Vector2(522, 248)
+
+[node name="Background0" type="Sprite2D" parent="."]
+position = Vector2(189.99998, -39.999985)
+scale = Vector2(1.8541666, 1.0384616)
+texture = ExtResource("1_k047a")
+
+[node name="Salt" type="Sprite2D" parent="."]
+position = Vector2(190, -8)
+texture = ExtResource("2_b5vc2")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(-146, 40)
+texture = ExtResource("3_suqky")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(518, 0)
+texture = ExtResource("3_suqky")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(2, 168)
+tile_map_data = PackedByteArray("AAD2/wEAAAAIAAEAAAD7/wEAAAAIAAEAAAABAAEAAAAIAAEAAAAHAAEAAAAIAAEAAAANAAEAAAAIAAEAAAATAAEAAAAIAAEAAAAZAAEAAAAIAAEAAAAfAAEAAAAIAAEAAADw/wEAAAAIAAEAAADw/wQAAAADAAgAAADx/wQAAAADAAgAAADy/wQAAAADAAgAAADz/wQAAAADAAgAAAD0/wQAAAADAAgAAAD1/wQAAAADAAgAAAD2/wQAAAADAAgAAAD3/wQAAAADAAgAAAD4/wQAAAADAAgAAAD5/wQAAAADAAgAAAD6/wQAAAADAAgAAAD7/wQAAAADAAgAAAD8/wQAAAADAAgAAAD9/wQAAAADAAgAAAD+/wQAAAADAAgAAAD//wQAAAADAAgAAAAAAAQAAAADAAgAAAABAAQAAAADAAgAAAACAAQAAAADAAgAAAADAAQAAAADAAgAAAAEAAQAAAADAAgAAAAFAAQAAAADAAgAAAAGAAQAAAADAAgAAAAHAAQAAAADAAgAAAAIAAQAAAADAAgAAAAJAAQAAAADAAgAAAAKAAQAAAADAAgAAAALAAQAAAADAAgAAAAMAAQAAAADAAgAAAANAAQAAAADAAgAAAAOAAQAAAADAAgAAAAPAAQAAAADAAgAAAAQAAQAAAADAAgAAAARAAQAAAADAAgAAAASAAQAAAADAAgAAAATAAQAAAADAAgAAAAUAAQAAAADAAgAAAAUAAMAAAADAAgAAAAVAAMAAAADAAgAAAAWAAMAAAADAAgAAAAbAAMAAAADAAgAAAAcAAMAAAADAAgAAAAdAAMAAAADAAgAAAAeAAMAAAADAAgAAAAfAAMAAAADAAgAAAAgAAMAAAADAAgAAAAgAAQAAAADAAgAAAAdAAQAAAADAAgAAAAXAAUAAAACAAkAAAAYAAUAAAACAAkAAAAZAAUAAAACAAkAAAAaAAUAAAACAAkAAAACAAIAAAACAAkAAAACAAMAAAACAAkAAADq/wEAAAAIAAEAAADm/wEAAAAIAAEAAADh/wEAAAAIAAEAAAAlAAEAAAAIAAEAAAApAAEAAAAIAAEAAADr/wQAAAADAAgAAADm/wQAAAADAAgAAADh/wQAAAADAAgAAAAlAAQAAAADAAgAAAApAAQAAAADAAgAAAAvAAEAAAAIAAEAAAA1AAEAAAAIAAEAAAAuAAQAAAADAAgAAAAzAAQAAAADAAgAAAA1AAQAAAADAAgAAAA2AAQAAAADAAgAAAA=")
+tile_set = SubResource("TileSet_fj7yv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-547.5, -32)
+shape = SubResource("RectangleShape2D_k047a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(926, -32)
+shape = SubResource("RectangleShape2D_k047a")
